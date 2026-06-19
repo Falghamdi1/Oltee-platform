@@ -197,7 +197,7 @@ export function useScenario(baselineInputs: OLTEEInputs | null): UseScenarioRetu
       // Build modified inputs from current slider values
       const modifiedInputs: OLTEEInputs = { ...bl.inputs };
       for (const config of configs) {
-        (modifiedInputs as Record<string, number>)[config.parameter] = config.currentValue;
+        (modifiedInputs as unknown as Record<string, number>)[config.parameter] = config.currentValue;
       }
       // Ensure A > D invariant
       if (modifiedInputs.D >= modifiedInputs.A) {
