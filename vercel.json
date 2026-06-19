@@ -7,7 +7,6 @@
     "fra1"
   ],
   "env": {
-    "GOOGLE_AI_API_KEY": "@google-ai-api-key",
     "GOOGLE_AI_MODEL": "gemini-2.5-flash",
     "GOOGLE_AI_MAX_TOKENS": "4096",
     "NEXT_PUBLIC_ENABLE_MONTE_CARLO": "true",
