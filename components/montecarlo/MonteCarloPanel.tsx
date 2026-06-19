@@ -23,7 +23,7 @@ interface Props {
 }
 
 export function MonteCarloPanel({ baseInputs, baseOutputs, dispatch, savedResult }: Props) {
-  const [iters, setIters] = useState(MONTE_CARLO_CONFIG.DEFAULT_ITERATIONS);
+  const [iters, setIters] = useState<number>(MONTE_CARLO_CONFIG.DEFAULT_ITERATIONS);
   const mc = useMonteCarlo();
 
   // Re-hydrate from context if the user navigates away and back
