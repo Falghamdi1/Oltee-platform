@@ -51,7 +51,7 @@ export function Navigation() {
       {/* Links */}
       <div style={{ display: "flex", gap: 2, flex: 1 }}>
         {NAV_LINKS.map(({ href, label }) => {
-          const disabled = href !== "/analyze" && href !== "/" && !hasBaseline;
+          const disabled = href !== "/analyze" && !hasBaseline;
           const active   = pathname === href ||
             (href === "/analyze" && pathname.startsWith("/analyze"));
           return (
