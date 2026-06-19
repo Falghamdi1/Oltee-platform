@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { AnalyzePageContent } from "@/components/pages/AnalyzePageContent";
 
 export const metadata: Metadata = {
@@ -7,5 +8,15 @@ export const metadata: Metadata = {
 };
 
 export default function AnalyzePage() {
-  return <AnalyzePageContent />;
+  return (
+    <Suspense 
+      fallback={
+        <div style={{ padding: "40px", textAlign: "center", color: "rgba(245,248,255,0.45)" }}>
+          Loading analysis...
+        </div>
+      }
+    >
+      <AnalyzePageContent />
+    </Suspense>
+  );
 }
