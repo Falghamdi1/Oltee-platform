@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+    --bg:         #06080F;
+    --surface:    #0E1525;
+    --surface-2:  #131D30;
+    --surface-3:  #18243A;
+    --line:       rgba(255,255,255,0.06);
+    --line-mid:   rgba(255,255,255,0.10);
+    --line-str:   rgba(255,255,255,0.16);
+
+    --text-1: #F5F8FF;
+    --text-2: rgba(245,248,255,0.60);
+    --text-3: rgba(245,248,255,0.32);
+    --text-4: rgba(245,248,255,0.16);
+
+    --brand:      #00E5B4;
+    --brand-dim:  #00B890;
+    --brand-bg:   rgba(0,229,180,0.07);
+    --brand-ring: rgba(0,229,180,0.25);
+
+    --opt:        #3DDE8E;
+    --opt-bg:     rgba(61,222,142,0.07);
+    --opt-ring:   rgba(61,222,142,0.20);
+    --opt-border: rgba(61,222,142,0.22);
+
+    --cau:        #FFB830;
+    --cau-bg:     rgba(255,184,48,0.07);
+    --cau-ring:   rgba(255,184,48,0.20);
+    --cau-border: rgba(255,184,48,0.22);
+
+    --sub:        #FF5C5C;
+    --sub-bg:     rgba(255,92,92,0.07);
+    --sub-ring:   rgba(255,92,92,0.20);
+    --sub-border: rgba(255,92,92,0.22);
+
+    --neg:        #FF4477;
+    --neg-bg:     rgba(255,68,119,0.07);
+    --neg-ring:   rgba(255,68,119,0.20);
+    --neg-border: rgba(255,68,119,0.22);
+
+    --radius-sm: 6px;
+    --radius:    10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+  }
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-1);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100dvh;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+  input[type="number"] { -moz-appearance: textfield; }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection { background: rgba(0,229,180,0.20); color: var(--text-1); }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10); border-radius: 99px; }
+
+  @keyframes spin    { to { transform: rotate(360deg); } }
+  @keyframes blink   { 0%,100%{opacity:1} 50%{opacity:0} }
+  @keyframes fadeUp  { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+  @keyframes pulse   { 0%,100%{opacity:.3} 50%{opacity:.6} }
+  @keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+  @keyframes dotpulse{ 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:.6} }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--surface-3);
+  border-radius: 99px;
+  cursor: pointer;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 2.5px solid var(--bg);
+  box-shadow: 0 0 0 3px var(--brand-ring);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 5px var(--brand-ring);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+  border: 2.5px solid var(--bg);
+  cursor: pointer;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical   line { stroke: var(--line) !important; }
+.recharts-tooltip-wrapper { outline: none !important; }
+.recharts-text {
+  fill: var(--text-3) !important;
+  font-size: 11px !important;
+  font-family: var(--font-sans) !important;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.card-2 {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.fade-up { animation: fadeUp 280ms cubic-bezier(.22,1,.36,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

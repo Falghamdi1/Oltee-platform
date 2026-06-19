@@ -1,0 +1,39 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "regions": [
+    "bah1"
+  ],
+  "env": {
+    "GOOGLE_AI_API_KEY": "@google-ai-api-key",
+    "GOOGLE_AI_MODEL": "gemini-2.5-flash",
+    "GOOGLE_AI_MAX_TOKENS": "4096",
+    "NEXT_PUBLIC_ENABLE_MONTE_CARLO": "true",
+    "NEXT_PUBLIC_ENABLE_PDF_EXPORT": "true",
+    "NEXT_PUBLIC_ENABLE_AI_INSIGHTS": "true",
+    "NEXT_PUBLIC_MONTE_CARLO_ITERATIONS": "10000"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
+        }
+      ]
+    }
+  ],
+  "rewrites": [],
+  "redirects": []
+}
