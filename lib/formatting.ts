@@ -13,7 +13,7 @@ import { FORMAT } from "@/config/constants";
  * Formats a number as SAR currency.
  * Example: 550000 → "SAR 550,000"
  */
-export function formatSAR(value: number, decimals = FORMAT.SARDecimals): string {
+export function formatSAR(value: number, decimals: number = FORMAT.SARDecimals): string {
   return `SAR ${value.toLocaleString(FORMAT.locale, {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
@@ -42,7 +42,7 @@ export function formatSARShort(value: number): string {
  */
 export function formatPercent(
   value: number,
-  decimals = FORMAT.percentDecimals
+  decimals: number = FORMAT.percentDecimals
 ): string {
   return `${(value * 100).toFixed(decimals)}%`;
 }
@@ -53,7 +53,7 @@ export function formatPercent(
  */
 export function formatPercentDirect(
   value: number,
-  decimals = FORMAT.percentDecimals
+  decimals: number = FORMAT.percentDecimals
 ): string {
   return `${value.toFixed(decimals)}%`;
 }
@@ -64,7 +64,7 @@ export function formatPercentDirect(
  * Formats a ratio with 2 decimal places and "x" suffix.
  * Example: 1.35 → "1.35×"
  */
-export function formatRatio(value: number, decimals = 2): string {
+export function formatRatio(value: number, decimals: number = 2): string {
   return `${value.toFixed(decimals)}×`;
 }
 
@@ -72,7 +72,7 @@ export function formatRatio(value: number, decimals = 2): string {
  * Formats a decimal ratio to N decimal places.
  * Example: 0.04074 → "0.041"
  */
-export function formatDecimal(value: number, decimals = 3): string {
+export function formatDecimal(value: number, decimals: number = 3): string {
   return value.toFixed(decimals);
 }
 
@@ -92,7 +92,7 @@ export function formatScore(value: number): string {
  * Formats a signed percentage change with +/− prefix.
  * Example: 0.05 → "+5.0%"  |  -0.02 → "−2.0%"
  */
-export function formatPercentDelta(value: number, decimals = 1): string {
+export function formatPercentDelta(value: number, decimals: number = 1): string {
   const sign = value >= 0 ? "+" : "−";
   return `${sign}${Math.abs(value * 100).toFixed(decimals)}%`;
 }
@@ -112,7 +112,7 @@ export function formatSARDelta(value: number): string {
  * Formats a 0–1 probability as a percentage string.
  * Example: 0.734 → "73.4%"
  */
-export function formatProbability(value: number, decimals = 1): string {
+export function formatProbability(value: number, decimals: number = 1): string {
   return `${(value * 100).toFixed(decimals)}%`;
 }
 
